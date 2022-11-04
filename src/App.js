@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Sidebar from "./components/SidePanel/Sidebar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import BasicTable from "./components/Services/Services";
+import FormPropsTextFields from "./Edit/Edit";
+import ExploreTable from "./components/Explore/Explore";
+import EditExplore from "./components/EditExplore/EditExplore";
+import AddExplore from "./components/AddExplore/AddExplore";
+import { Provider } from "react-redux";
+import { Store } from "./Store";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidebar />
+      <Provider store={Store}>
+        <Router>
+          <Switch>
+            <Route path="/services">
+              <BasicTable />
+            </Route>
+            <Route path="/explore">
+              <ExploreTable />
+            </Route>
+            <Route path="/edit/:id">
+              <FormPropsTextFields />
+            </Route>
+            <Route path="/editexplore/:id">
+              <EditExplore />
+            </Route>
+            <Route path="/addexplore">
+              <AddExplore />
+            </Route>
+          </Switch>
+        </Router>
+      </Provider>
     </div>
   );
 }

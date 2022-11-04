@@ -1,0 +1,44 @@
+/* .editbutton{
+    border:none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer
+}
+.addbutton{
+    background-color:green;
+    border:none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer
+}
+.deletebutton{
+    background-color: red;
+    border:none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer
+} */
+.Actions{
+    display:flex;
+}
+.search{
+    display:flex;
+    justify-content: right;
+    align-items: flex-end;
+    padding-bottom: 40px;
+}
