@@ -8,14 +8,22 @@ import EditExplore from "./components/EditExplore/EditExplore";
 import AddExplore from "./components/AddExplore/AddExplore";
 import { Provider } from "react-redux";
 import { Store } from "./Store";
+import Cards from "./components/Cards/cards";
+import AddImage from "./components/AddImage/addImage";
+import EditImage from "./components/EditImage/editImage";
+import TitlebarBelowImageList from "./components/MainPage/mainPage";
 
 function App() {
   return (
     <div className="App">
       <Sidebar />
+
       <Provider store={Store}>
         <Router>
           <Switch>
+            <Route exact path="/">
+              <TitlebarBelowImageList />
+            </Route>
             <Route path="/services">
               <BasicTable />
             </Route>
@@ -30,6 +38,15 @@ function App() {
             </Route>
             <Route path="/addexplore">
               <AddExplore />
+            </Route>
+            <Route path="/cards">
+              <Cards />
+            </Route>
+            <Route path="/addImage">
+              <AddImage />
+            </Route>
+            <Route path="/editImage/:id">
+              <EditImage />
             </Route>
           </Switch>
         </Router>

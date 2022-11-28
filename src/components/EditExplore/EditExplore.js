@@ -5,6 +5,8 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function EditExplore() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -34,14 +36,14 @@ export default function EditExplore() {
   const Save = (event) => {
     axios
       .post(process.env.REACT_APP_URL + "/saveChanges", {
-        Title: title,
-        Content: content,
+        title: title,
+        content: content,
         id,
       })
       .then((response) => {
         if (response.data.success) {
           console.log("response1", response);
-          history.push("/explore");
+          toast("saved");
         }
       });
 
@@ -51,50 +53,53 @@ export default function EditExplore() {
     history.push("/explore");
   };
   return (
-    <Box
-      component="form"
-      sx={{
-        "& .MuiTextField-root": { m: 4, width: "100ch" },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
-        <TextField
-          type={"text"}
-          id="filled-helperText"
-          label="Title"
-          value={title}
-          onChange={handleTitle}
-          variant="filled"
-        />
-      </div>
-      <div>
-        <TextField
-          type={"text"}
-          id="standard-helperText"
-          label="Content"
-          value={content}
-          onChange={handleContent}
-          variant="standard"
-        />
-      </div>
-      <div>
-        <button
-          className="save"
-          style={{ backgroundColor: "#2e7d32", color: "white" }}
-          onClick={Save}
-        >
-          Save Changes
-        </button>
-        <button
-          className="Back"
-          style={{ backgroundColor: "#2e7d32", color: "white" }}
-          onClick={Back}
-        >
-          GO BACK
-        </button>
-      </div>
-    </Box>
+    <>
+      <ToastContainer />
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 4, width: "100ch" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <div>
+          <TextField
+            type={"text"}
+            id="filled-helperText"
+            label="Title"
+            value={title}
+            onChange={handleTitle}
+            variant="filled"
+          />
+        </div>
+        <div>
+          <TextField
+            type={"text"}
+            id="standard-helperText"
+            label="Content"
+            value={content}
+            onChange={handleContent}
+            variant="standard"
+          />
+        </div>
+        <div>
+          <button
+            className="save"
+            style={{ backgroundColor: "#2e7d32", color: "white" }}
+            onClick={Save}
+          >
+            Save Changes
+          </button>
+          <button
+            className="Back"
+            style={{ backgroundColor: "#2e7d32", color: "white" }}
+            onClick={Back}
+          >
+            GO BACK
+          </button>
+        </div>
+      </Box>
+    </>
   );
 }

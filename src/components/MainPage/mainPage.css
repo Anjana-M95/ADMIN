@@ -1,0 +1,35 @@
+.tabs{
+    padding-top: 50px;
+    display:flex;
+    flex-direction: row; 
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 100px;
+}
+.one{
+    background-color: lightblue;
+    max-width: 100%;
+    width:300px;
+}
+.two{
+    background-color: lightblue;
+    width:300px;
+    max-width: 100%;
+}
+.three{
+    background-color: lightblue;
+    width:300px;
+    max-width: 100%;
+}
+.four{
+    background-color: lightblue;
+    width:300px;
+    max-width: 100%;
+  
+}
+.imageList{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}

@@ -13,17 +13,6 @@ import "./Services.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-// function createData(Id, Title, Description, Action, path) {
-//   return { Id, Title, Description, Action, path };
-// }
-
-// const rows = [
-//   createData("", "", "", "EDIT", "/edit"),
-//   createData("", "", "", "EDIT", "/exploreservice"),
-//   createData("", "", "", "EDIT", ""),
-//   createData("", "", "", "EDIT", ""),
-//   createData("", "", "", "EDIT", ""),
-// ];
 const useStyles = makeStyles({
   table: {
     margin: "auto",
@@ -44,12 +33,14 @@ export default function BasicTable() {
   const classes = useStyles();
   const history = useHistory();
   useEffect(() => {
-    axios.get(process.env.REACT_APP_BASEURL + "/tableData").then((response) => {
-      if (response.data.success) {
-        console.log("response", response);
-        setRows(response.data.value);
-      }
-    });
+    axios
+      .get(process.env.REACT_APP_BASEURL + "/exploreService")
+      .then((response) => {
+        if (response.data.success) {
+          console.log("response", response);
+          setRows(response.data.value);
+        }
+      });
   }, []);
   return (
     <div className="table">

@@ -1,5 +1,5 @@
-import "./SidePanel.css";
 import { SidebarData } from "../SidebarData/SidebarData";
+import "./SidePanel.css";
 function SidePanel() {
   console.log("title");
   return (
